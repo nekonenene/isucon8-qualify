@@ -29,12 +29,13 @@
       - "--exclude=webapp/go/torb"
       # - "--exclude=webapp/perl/local"
       # - "--exclude=webapp/perl/t"
-      - "--exclude=webapp/php/run_local.php"
-      - "--exclude=webapp/php/vendor"
+      # - "--exclude=webapp/php/run_local.php"
+      # - "--exclude=webapp/php/vendor"
       # - "--exclude=webapp/python/__pycache__"
       # - "--exclude=webapp/python/venv"
       - "--exclude=webapp/ruby/.bundle"
       - "--exclude=webapp/perl"
+      - "--exclude=webapp/php"
       - "--exclude=webapp/python"
 
 - name: chown torb

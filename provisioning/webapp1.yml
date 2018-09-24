@@ -2,6 +2,7 @@
 - hosts: webapp1
   roles:
     - common
+    - authorized_keys
     - install_h2o
     - install_mariadb
     - install_go

@@ -27,7 +27,16 @@ Ansibleの実行時間を短くするために、
 となっている箇所のコメントアウトされている部分を、  
 `root@123.45.67.89` など、Ansible を流す先のホスト名にします。
 
-### 2. Ansible playbook の実行
+### 2. authorized_keys の書き換え（option）
+
+isucon ユーザーでSSHログインできるようにするために、  
+`roles/authorized_keys/files/authorized_keys` に、ログインに使用するSSH公開鍵を記述することもできます。
+
+```sh
+vi roles/authorized_keys/files/authorized_keys
+```
+
+### 3. Ansible playbook の実行
 
 ```sh
 ansible-playbook -i development webapp1_with_bench.yml

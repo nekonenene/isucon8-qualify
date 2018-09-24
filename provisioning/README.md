@@ -1,7 +1,7 @@
 # 改変版 Torb Ansible
 
 Ansibleの実行時間を短くするために、  
-`webapp1.yml` は Go, Ruby, PHP, Node.js の参照実装のみをインストールしています。（私の好みですみません……）
+`webapp1.yml` は Go, Ruby の参照実装のみをインストールしています。
 
 また、デフォルトで起動する参照実装は  
 本番では Perl でしたが Go にしてあります。

@@ -11,8 +11,8 @@ Ansibleの実行時間を短くするために、
 
 ## Required
 
-* CentOS 7 系
-* Ansible
+* CentOS 7 系のリモートサーバー ( [ConoHa](https://www.conoha.jp/conoha/login) のメモリ1GBプランを使用すると、本番に近いです )
+* Ansible ( 2.6.4 で検証 )
 
 
 ## webapp, bench をデプロイ
@@ -48,8 +48,11 @@ Webアプリ「Torb」が起動し始めます。
 bash /home/isucon/torb/bench/tools/do_bench.sh
 ```
 
+<br><br>
 
 **以下、もとのREADME**
+
+- - -
 
 # torb provisioning
 

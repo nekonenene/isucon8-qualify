@@ -3,6 +3,17 @@
 * [予選レギュレーション](./doc/REGULATION.md)
 * [予選マニュアル](./doc/MANUAL.md)
 
+
+## もとのリポジトリからの変更点
+
+もとのリポジトリ ( https://github.com/isucon/isucon8-qualify ) から、  
+`provisioning` ディレクトリを中心にいくらかの変更を加えました。
+
+（コスト節約のため）1サーバーのみに、1つのwebappとbenchを入れてあれこれいじって検証しやすくするのが目的です。
+
+詳しくは [provisioning ディレクトリ内の README](./provisioning/README.md) をご覧ください。
+
+
 ## 本番のマシンスペック
 
 * vCPU 2コア : Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz
@@ -12,15 +23,18 @@
 
 のVMを３台
 
+
 ## 本番のOS/初期ミドルウェア
 
 * CentOS 7.5.1804
 * MariaDB 5.5.60
 * H2O 2.2.5
 
+
 ## 感想戦用、1VMでの動かし方
 
 環境構築の詳細については [provisioning](./provisioning) を参照。
+
 
 ### 環境構築
 
@@ -39,6 +53,7 @@ xbuild/go-install     1.9     /home/isucon/local/go
 xbuild/python-install 3.7.0   /home/isucon/local/python
 xbuild/php-install    7.2.9   /home/isucon/local/php -- --with-pcre-regex --with-zlib --enable-fpm --enable-pdo --with-pear --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-openssl --with-pcre-regex --with-pcre-dir --with-libxml-dir --enable-opcache --enable-bcmath --with-bz2 --enable-calendar --enable-cli --enable-shmop --enable-sysvsem --enable-sysvshm --enable-sysvmsg --enable-mbregex --enable-mbstring --enable-pcntl --enable-sockets --with-curl --enable-zip
 ```
+
 
 ### ベンチマーカーの準備
 
@@ -63,6 +78,7 @@ cd bench
 ./bin/gen-initial-dataset   # ../db/isucon8q-initial-dataset.sql.gz ができる
 ```
 
+
 ### データベース初期化
 
 データベース初期化、アプリが動くのに最低限必要なデータ投入
@@ -79,6 +95,7 @@ mysql> GRANT ALL on torb.* TO isucon@'localhost';
 $ ./db/init.sh
 ```
 
+
 ### 参考実装(perl)を動かす
 
 初回のみ
@@ -94,6 +111,7 @@ $ cpanm --installdeps --notest --force .
 $ ./run_local.sh
 ```
 
+
 ### ベンチマーク実行
 
 ```console
@@ -107,6 +125,7 @@ $ ./bin/bench -remotes=127.0.0.1:8080 -output result.json
 ```
 $ jq . < result.json
 ```
+
 
 ## 既知の不具合
 

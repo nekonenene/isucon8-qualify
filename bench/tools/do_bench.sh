@@ -1,12 +1,19 @@
 #!/bin/bash
 
 function main() {
-  local readonly LATEST_RESULT_JSON="bench-result_latest.json"
+  set -eu
+
   cd /home/isucon/torb/bench/
-  bin/bench -remotes=127.0.0.1 -output ${LATEST_RESULT_JSON}
-  cp ${LATEST_RESULT_JSON} bench-result_$(date "+%Y-%m-%d_%H-%M-%S").json
+
+  local readonly RESULT_JSON="bench-result_$(date "+%Y-%m-%d_%H-%M-%S").json"
+  bin/bench -remotes=127.0.0.1 -output ${RESULT_JSON}
+
+  local readonly SCORE="$(cat ${RESULT_JSON} | jq .score)"
+  local readonly SCORES_LOG="scores.log"
+  echo "$(date) | Score: ${SCORE}" >> ${SCORES_LOG}
   echo
-  echo "Score: $(cat ${LATEST_RESULT_JSON} | jq .score)"
+  echo "Score: ${SCORE}"
+  echo "Updated $(pwd)/${SCORES_LOG}"
 }
 
 main

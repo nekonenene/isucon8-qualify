@@ -72,12 +72,12 @@
 #     src: torb.python.service
 #     dest: /etc/systemd/system/torb.python.service
 
-- name: Put torb.ruby.service
-  become: yes
-  become_user: root
-  copy:
-    src: torb.ruby.service
-    dest: /etc/systemd/system/torb.ruby.service
+# - name: Put torb.ruby.service
+#   become: yes
+#   become_user: root
+#   copy:
+#     src: torb.ruby.service
+#     dest: /etc/systemd/system/torb.ruby.service
 
 # - name: Install for torb.nodejs
 #   become: yes
@@ -119,10 +119,10 @@
 #   shell: |
 #     bash -lc "sh setup.sh"
 
-- name: Install for torb.ruby
-  become: yes
-  become_user: isucon
-  args:
-    chdir: /home/isucon/torb/webapp/ruby
-  shell: |
-    bash -lc "bundle install --path=.bundle"
+# - name: Install for torb.ruby
+#   become: yes
+#   become_user: isucon
+#   args:
+#     chdir: /home/isucon/torb/webapp/ruby
+#   shell: |
+#     bash -lc "bundle install --path=.bundle"

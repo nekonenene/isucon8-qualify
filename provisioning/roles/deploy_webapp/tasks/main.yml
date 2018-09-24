@@ -33,11 +33,12 @@
       # - "--exclude=webapp/php/vendor"
       # - "--exclude=webapp/python/__pycache__"
       # - "--exclude=webapp/python/venv"
-      - "--exclude=webapp/ruby/.bundle"
+      # - "--exclude=webapp/ruby/.bundle"
       - "--exclude=webapp/nodejs"
       - "--exclude=webapp/perl"
       - "--exclude=webapp/php"
       - "--exclude=webapp/python"
+      - "--exclude=webapp/ruby"
 
 - name: chown torb
   become: yes

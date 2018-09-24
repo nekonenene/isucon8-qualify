@@ -95,13 +95,13 @@
   shell: |
     bash -lc "make clean && make deps && make"
 
-- name: Install for torb.perl
-  become: yes
-  become_user: isucon
-  args:
-    chdir: /home/isucon/torb/webapp/perl
-  shell: |
-    bash -lc "carton install"
+# - name: Install for torb.perl
+#   become: yes
+#   become_user: isucon
+#   args:
+#     chdir: /home/isucon/torb/webapp/perl
+#   shell: |
+#     bash -lc "carton install"
 
 # - name: Install for torb.php
 #   become: yes

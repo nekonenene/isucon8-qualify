@@ -1,3 +1,56 @@
+# 改変版 Torb Ansible
+
+Ansibleの実行時間を短くするために、  
+`webapp1.yml` は Go, Ruby, Node.js の参照実装のみをインストールしています。
+
+また、デフォルトで起動する参照実装は  
+本番では Perl でしたが Go にしてあります。
+
+参照実装の切り替え方法は **[予選マニュアル](https://gist.github.com/rkmathi/1d08e17671d3952e8d2e873e686b7ea6#%E5%8F%82%E7%85%A7%E5%AE%9F%E8%A3%85%E3%81%AE%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88%E6%96%B9%E6%B3%95)** を見てください。
+
+
+## Required
+
+* CentOS 7 系
+* Ansible
+
+
+## webapp, bench をデプロイ
+
+### 1. development の書き換え
+
+```sh
+[webapp1]
+# 競技用webappをデプロイするサーバ(1)
+```
+
+となっている箇所のコメントアウトされている部分を、  
+`root@123.45.67.89` など、Ansible を流す先のホスト名にします。
+
+### 2. Ansible playbook の実行
+
+```sh
+ansible-playbook -i development webapp1_with_bench.yml
+```
+
+これで `webapp1_with_bench.yml` が対象サーバーに流し込まれ、  
+Webアプリ「Torb」が起動し始めます。
+
+
+## ベンチマークを実行するには
+
+ベンチアプリケーション自体は `/home/isucon/torb/bench/bin/bench` に展開されています。
+
+それをいい感じに走らせてくれるスクリプトを `/home/isucon/torb/bench/tools` 下に置いておきましたので、  
+ベンチを走らせる際は、リモート環境にて以下のコマンドを実行してください。
+
+```sh
+bash /home/isucon/torb/bench/tools/do_bench.sh
+```
+
+
+**以下、もとのREADME**
+
 # torb provisioning
 
 ## ポータル、ベンチマーカ、競技用webappの初期デプロイをする君

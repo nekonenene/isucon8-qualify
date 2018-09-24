@@ -1,0 +1,8 @@
+---
+- hosts: webapp1
+  roles:
+    - common
+    - increase_ulimit
+    - install_go
+    - deploy_bench
+    - build_bench

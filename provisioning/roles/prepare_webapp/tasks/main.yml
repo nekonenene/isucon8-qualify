@@ -103,13 +103,13 @@
 #   shell: |
 #     bash -lc "carton install"
 
-# - name: Install for torb.php
-#   become: yes
-#   become_user: isucon
-#   args:
-#     chdir: /home/isucon/torb/webapp/php
-#   shell: |
-#     bash -lc "composer install"
+- name: Install for torb.php
+  become: yes
+  become_user: isucon
+  args:
+    chdir: /home/isucon/torb/webapp/php
+  shell: |
+    bash -lc "composer install"
 
 # - name: Install for torb.python
 #   become: yes

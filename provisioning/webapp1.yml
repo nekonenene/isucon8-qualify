@@ -7,7 +7,7 @@
     - install_go
     - install_nodejs
     # - install_perl
-    # - install_php
+    - install_php
     # - install_python
     - install_ruby
     - deploy_webapp
